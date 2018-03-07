@@ -1,0 +1,26 @@
+{
+  "name": "express-1410-handlebars",
+  "version": "1.0.0",
+  "description": "Express site for 14-10 website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtw590/express-1410-handlebars.git"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "express": "*",
+    "express-handlebars": "*",
+    "jquery": "^3.3.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rtw590/express-1410-handlebars/issues"
+  },
+  "homepage": "https://github.com/rtw590/express-1410-handlebars#readme"
+}
