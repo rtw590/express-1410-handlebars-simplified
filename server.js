@@ -8,7 +8,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-var people = ['Rob', 'John', 'Mike'];
+app.use(express.static('public'))
 
 app.get('/', function(req, res){
     res.render('home');
