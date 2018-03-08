@@ -1,3 +1,55 @@
 body {
-    background-color: rgb(238, 238, 238);
+    background-color: #272727;
+}
+
+.card {
+    /* box-shadow: 5px 10px 8px #888888; */
+    border: none;
+}
+
+.bg-dark {
+    background-color: #272727 !important;
+}
+
+#wholeNavBar ul {
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#wholeNavBar li {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: uppercase;
+}
+
+#wholeNavBar a {
+    color: white;
+}
+
+#wholeNavBar a:hover {
+    color: red;
+}
+
+h1{
+    color: white;
+}
+
+h4{
+    color: white;
+}
+
+hr {
+    color: white;
+}
+
+#divider    {
+    width: 90%;
+    height: 1px;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.btn-danger {
+    background-color: rgb(202, 0, 0);
 }
