@@ -21,6 +21,7 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
 #wholeNavBar a {
@@ -52,4 +53,12 @@ hr {
 
 .btn-danger {
     background-color: rgb(202, 0, 0);
+}
+
+h1, h2, h3, h4, p, ul, li, a, div{
+    font-family: 'Roboto', sans-serif;
+}
+
+.boldText   {
+    font-weight: 700;
 }

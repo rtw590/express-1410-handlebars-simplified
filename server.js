@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var exphbs = require('express-handlebars');
 
+var tutorials = require('./routes/tutorials');
+
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -10,13 +12,15 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'))
 
+app.use('/tutorials', tutorials);
+
 app.get('/', function(req, res){
     res.render('home');
 });
 
-app.get('/tutorials', function(req, res){
-    res.render('tutorials');
-});
+// app.get('/tutorials', function(req, res){
+//     res.render('tutorials');
+// });
 
 app.get('/freelance', function(req, res){
     res.render('freelance');
