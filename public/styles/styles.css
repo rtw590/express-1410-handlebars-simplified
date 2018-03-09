@@ -36,6 +36,10 @@ h1{
     color: white;
 }
 
+h2{
+    color: red;
+}
+
 h4{
     color: white;
 }
@@ -61,4 +65,18 @@ h1, h2, h3, h4, p, ul, li, a, div{
 
 .boldText   {
     font-weight: 700;
+}
+
+#filesNeeded li    {
+    color: white
+}
+
+#filesNeeded a    {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar {
+    padding: 0px;
+
 }

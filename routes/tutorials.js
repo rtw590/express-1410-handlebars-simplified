@@ -15,4 +15,8 @@ router.get('/blender-clock-tutorial', function(req, res){
     res.render('blender-clock');
 });
 
+router.get('/blender-keys-tutorial', function(req, res){
+    res.render('keys');
+});
+
 module.exports = router;
