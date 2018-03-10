@@ -78,5 +78,8 @@ h1, h2, h3, h4, p, ul, li, a, div{
 
 .navbar {
     padding: 0px;
+}
 
+iframe  {
+    border: 1px solid white !important;
 }
