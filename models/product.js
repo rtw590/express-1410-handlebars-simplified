@@ -1,16 +1,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-// Create product Schema and Model
-var ProductSchema = new Schema({
+// User Schema
+var schema = new Schema({
     title: {
         type: String
     },
-    imagePath: {
+    imgPath: {
         type: String
     }
 });
 
-var Product = mongoose.model('product', ProductSchema);
-
-module.exports = Product;
+module.exports = mongoose.model('Product', schema);
