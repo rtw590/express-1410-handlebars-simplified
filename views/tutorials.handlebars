@@ -1,8 +1,27 @@
  <div class="container">
+    
+    
     <h1 class="text-center mt-2 boldText">Blender Tutorials</h1>
     <h4 class="text-center">Whether you are an absolute beginner or a more experienced user, you can find a tutorial for you!</h4>
 
-    <div class="card-deck" style="margin: 10px;">
+    {{# each tutorials }}
+        <div class="card-deck mt-3" >
+            {{# each this }}
+            <div class="card" >
+                <a href="/tutorials/{{ this.id }}"><img class="card-img-top" src="{{ this.imgPath }}" alt="Card image cap"></a>
+                <div class="card-body">
+                    <h5 class="card-title boldText">{{ this.title }}</h5>
+                    <p class="card-text">{{ this.shortDesc }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="/tutorials/{{ this.id }}" class="btn btn-primary btn-block btn-danger card-bottom" style="margin-top: 5px;">Learn How!</a>
+                </div>
+            </div>
+            {{/each}}
+        </div> 
+    {{/each}}
+
+    {{!-- <div class="card-deck" style="margin: 10px;">
         <div class="card" style="margin: 10px;">
             <a href="/tutorials/blender-top-plays-countdown"><img class="card-img-top" src="images/plays.png" alt="Card image cap"></a>
             <div class="card-body">
@@ -38,20 +57,9 @@
             </div>
         </div>
 
-    </div>
-
-    {{!-- <div class="card-deck" style="margin: 10px;">
-        <div class="card" style="margin: 10px;">
-            <a href="/tutorials/blender-keys-tutorial"><img class="card-img-top" src="images/keys.png" alt="Card image cap"></a>
-            <div class="card-body">
-                <h5 class="card-title boldText">Flying Keys</h5>
-                <p class="card-text">In this tutorial we will model, texture, and animate flying keys.</p>
-            </div>
-            <div class="card-footer">
-                <a href="/tutorials/blender-keys-tutorial" class="btn btn-primary btn-block btn-danger card-bottom" style="margin-top: 5px;">Learn How!</a>
-            </div>
-        </div>
     </div> --}}
+
+
 
 
 </div>
