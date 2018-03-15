@@ -13,7 +13,7 @@ body {
 
 #wholeNavBar ul {
     margin: 0 auto;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
 }
 
@@ -21,7 +21,7 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 #wholeNavBar a {
@@ -93,3 +93,12 @@ iframe  {
 .btn-light {
     background-color: rgb(212, 212, 212);
 }
+
+.red a {
+    color: rgb(148, 148, 148) !important;
+}
+
+.red a:hover {
+    color: red !important;
+}
+

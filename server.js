@@ -32,8 +32,8 @@ app.get('/', function(req, res){
 //     res.render('tutorials');
 // });
 
-app.get('/freelance', function(req, res){
-    res.render('freelance');
+app.get('/portfolio', function(req, res){
+    res.render('portfolio');
 });
 
 app.get('/store', function(req, res){
