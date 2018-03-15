@@ -68,12 +68,18 @@ h1, h2, h3, h4, p, ul, li, a, div{
 }
 
 #filesNeeded li    {
-    color: white
+    color: white;
+    list-style: none;
 }
+
 
 #filesNeeded a    {
     color: white;
     text-decoration: none;
+}
+
+#filesNeeded a:hover    {
+    color: red;
 }
 
 .navbar {
@@ -82,4 +88,8 @@ h1, h2, h3, h4, p, ul, li, a, div{
 
 iframe  {
     border: 1px solid white !important;
+}
+
+.btn-light {
+    background-color: rgb(212, 212, 212);
 }

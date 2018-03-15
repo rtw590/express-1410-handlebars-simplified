@@ -3,20 +3,58 @@
 
     <h1 class="text-center">{{ tutorial.title }}</h1>
 
-    <img src="{{ tutorial.imgPath }}" alt="">
+    <div class="row">
 
-    <h1 class="text-center">{{ tutorial.youtubeID }}</h1>
+        <div class="col-md-7">
+            <div class="embed-responsive embed-responsive-16by9">
 
-    <h1 class="text-center">{{ tutorial.shortDesc }}</h1>
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ tutorial.youtubeID }}" allowfullscreen="" frameborder="0"></iframe>
+            </div>
+        </div>
 
-    <h1 class="text-center">{{ tutorial.longDesc }}</h1>
+        <div class="col-md-5">
+            <div>
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tutorial.title }} Files</h5>
+                    <p class="card-text">
+                        All tutorial files are available for download. You can download them for free or you can support my content
+                        by choosing to pay.
+                    </p>
+                    <div style= "width: 100%;">
+                        <select style= "width: 100%;">
+                            <option>Free - :)</option>
+                            <option>$1 - Thanks!</option>
+                            <option>$2 - You're Awesome!</option>
+                            <option>$5 - I've Got Five On It</option>
+                            <option>$10 - Wow!</option>
+                        </select>
+                        <br>
+                        <button type="button" class="btn btn-danger mt-1" style= "width: 100%;">Add To Cart!</button>
+                        <br>
+                        <button type="button" class="btn btn-light mt-1" style= "width: 100%;">View Cart</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
 
-    <a href="{{ tutorial.filesNeeded1 }}">{{ tutorial.filesNeeded1Title }}</a>
+    </div>
 
-    <a href="{{ tutorial.filesNeeded2 }}">{{ tutorial.filesNeeded2Title }}</a>
+    <h2 class="text-left boldText">{{ tutorial.longDesc }}</h2>
 
-    <a href="{{ tutorial.filesNeeded3 }}">{{ tutorial.filesNeeded3Title }}</a>
-
+    <h4>Files Needed</h4>
+        <div id="filesNeeded">
+            <ul>
+                <li><a href="{{ tutorial.filesNeeded1 }}" target="_blank">{{ tutorial.filesNeeded1Title }}</a></li>
+                <li><a href="{{ tutorial.filesNeeded2 }}" target="_blank">{{ tutorial.filesNeeded2Title }}</a></li>
+                <li><a href="{{ tutorial.filesNeeded3 }}" target="_blank">{{ tutorial.filesNeeded3Title }}</a></li>
+                <li><a href="{{ tutorial.filesNeeded4 }}" target="_blank">{{ tutorial.filesNeeded4Title }}</a></li>
+		    </ul>
+        </div>
 </div>
+
+
+
 
 
