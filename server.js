@@ -1,9 +1,14 @@
 var express = require('express');
 var path = require('path');
 var exphbs = require('express-handlebars');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
 var tutorials = require('./routes/tutorials');
 var downloads = require('./routes/downloads');
+var account = require('./routes/account');
+
+var session = require('express-session');
 
 var app = express();
 
@@ -19,10 +24,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(session({secret: 'mysupersecret', resave: false, saveUninitialized: false}));
+
 app.use(express.static('public'))
 
 app.use('/tutorials', tutorials);
 app.use('/downloads', downloads);
+app.use('/account', account);
 
 app.get('/', function(req, res){
     res.render('home');

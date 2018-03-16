@@ -13,8 +13,11 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
+    "cookie-parser": "^1.4.3",
+    "csurf": "^1.9.0",
     "express": "*",
     "express-handlebars": "*",
+    "express-session": "^1.15.6",
     "jquery": "^3.3.1",
     "mongoose": "^5.0.9"
   },
