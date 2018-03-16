@@ -3,7 +3,7 @@ var path = require('path');
 var exphbs = require('express-handlebars');
 
 var tutorials = require('./routes/tutorials');
-var store = require('./routes/store');
+var downloads = require('./routes/downloads');
 
 var app = express();
 
@@ -22,7 +22,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'))
 
 app.use('/tutorials', tutorials);
-app.use('/store', store);
+app.use('/downloads', downloads);
 
 app.get('/', function(req, res){
     res.render('home');
@@ -36,8 +36,8 @@ app.get('/portfolio', function(req, res){
     res.render('portfolio');
 });
 
-app.get('/store', function(req, res){
-    res.render('store');
+app.get('/downloads', function(req, res){
+    res.render('downloads');
 });
 
 var port = process.env.PORT || 3000;
