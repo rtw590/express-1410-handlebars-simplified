@@ -1,4 +1,9 @@
 <div class="container">
+    <h2 class="text-center">Create An Account</h2>
+    <h4 class="text-center" style="color: white;">
+        Your account can be used to track past
+        orders and to download any files that you have previously purchased.
+    </h4>
     <div>
         <h1>Sign Up</h1>
         {{#if hasErrors}}
@@ -8,13 +13,13 @@
                 {{/each}}
             </div>
         {{/if}}
-        <form action = "/account/signup" method="post">
+        <form action = "/account/signup" method="post" style="border-radius: 10px; padding: 10px; background-color: rgb(226, 226, 226);">
             <div class="form-group">
-                <label for="email" style="color: white;">E-Mail</label>
+                <label for="email" style="color: black;">E-Mail</label>
                 <input type="text" id="email" name="email" class="form-control">
             </div>
             <div class="form-group">
-                <label for="password" style="color: white;">Password</label>
+                <label for="password" style="color: black;">Password</label>
                 <input type="password" id="password" name="password" class="form-control">
             </div>
             <input type="hidden" name="_csrf" value="{{ csrfToken }}">

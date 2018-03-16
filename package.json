@@ -20,6 +20,7 @@
     "express": "*",
     "express-handlebars": "*",
     "express-session": "^1.15.6",
+    "express-validator": "^5.0.3",
     "jquery": "^3.3.1",
     "mongoose": "^5.0.9",
     "passport": "^0.4.0",
