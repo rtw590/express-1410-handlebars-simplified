@@ -5,15 +5,15 @@
         orders and to download any files that you have previously purchased.
     </h4>
     <div>
-        <h1>Sign Up</h1>
+        <h1 class="text-center">Sign Up</h1>
         {{#if hasErrors}}
-            <div class="alert alert-danger">
+            <div class="alert alert-danger mb-2" style="max-width: 500px; margin: 0 auto;">
                 {{# each messages }}
                     <p>{{this}}</p>
                 {{/each}}
             </div>
         {{/if}}
-        <form action = "/account/signup" method="post" style="border-radius: 10px; padding: 10px; background-color: rgb(226, 226, 226);">
+        <form action = "/account/signup" method="post" style="border-radius: 5px; padding: 10px; background-color: rgb(226, 226, 226); max-width: 500px; margin: 0 auto;">
             <div class="form-group">
                 <label for="email" style="color: black;">E-Mail</label>
                 <input type="text" id="email" name="email" class="form-control">
