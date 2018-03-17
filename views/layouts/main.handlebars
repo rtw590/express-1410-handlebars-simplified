@@ -44,10 +44,18 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user mr-1"></i>Account
                             </a>
-                            <div class="dropdown-menu ml-3" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">View Account</a>
-                            <a class="dropdown-item" href="#">Logout</a>
-                            </div>
+                            {{# if login }}
+                                <div class="dropdown-menu ml-3" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/account/profile">View Account</a>
+                                    <a class="dropdown-item" href="/account/logout">Logout</a>
+                                </div>
+                            {{ else }}
+                                <div class="dropdown-menu ml-3" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/account/signup">Sign Up</a>
+                                    <a class="dropdown-item" href="/account/signin">Login</a>
+                                </div>
+                            {{/if}}
+                            
                         </li>
 
                     </ul>
