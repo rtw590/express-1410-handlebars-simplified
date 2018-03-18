@@ -26,16 +26,18 @@ router.get('/:id', function(req, res){
 });
 
 router.get('/add-to-cart/:id', function(req, res, next) {
-    var productId = req.params.id;
-    var cart = new Cart(req.session.cart ? req.session.cart : {items: {}});
+    var tutorialId = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+    console.log(req.body);
+    console.log(req.body.PWYW);
 
-    Tutorial.findById(req.params.id, function(err, tutorial) {
+    Tutorial.findById(tutorialId, function(err, tutorial) {
         if (err) {
             console.log(err);
             return res.send('There was an error');
         }
         cart.add(tutorial, tutorial.id);
-        res.session.cart = cart;
+        req.session.cart = cart;
         console.log(req.session.cart)
         res.redirect('/')
     });
