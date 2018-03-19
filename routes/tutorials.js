@@ -25,6 +25,8 @@ router.get('/:id', function(req, res){
     })
 });
 
+
+// First Attempt to work
 router.get('/add-to-cart/:id', function(req, res, next) {
     var tutorialId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -37,6 +39,24 @@ router.get('/add-to-cart/:id', function(req, res, next) {
             return res.send('There was an error');
         }
         cart.add(tutorial, tutorial.id);
+        req.session.cart = cart;
+        console.log(req.session.cart)
+        res.redirect('/')
+    });
+});
+
+// Second Attempt to work
+router.post('/add-to-cart/:id', function(req, res, next) {
+    var tutorialId = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+    var PWYW = parseInt(req.body.PWYW);
+
+    Tutorial.findById(tutorialId, function(err, tutorial) {
+        if (err) {
+            console.log(err);
+            return res.send('There was an error');
+        }
+        cart.add(tutorial, tutorial.id, PWYW);
         req.session.cart = cart;
         console.log(req.session.cart)
         res.redirect('/')
