@@ -59,7 +59,7 @@ router.post('/add-to-cart/:id', function(req, res, next) {
         cart.add(tutorial, tutorial.id, PWYW);
         req.session.cart = cart;
         console.log(req.session.cart)
-        res.redirect('/')
+        res.redirect('/tutorials')
     });
 });
 

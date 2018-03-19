@@ -2,11 +2,20 @@ var express = require('express');
 var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
+var Cart = require('../models/cart');
 
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
 router.use(express.static('public'))
+
+router.get('/shopping-cart', function(req, res, next) {
+    if (!req.session.cart) {
+        return res.render('shopping-cart', {products: null});
+    }
+    var cart = new Cart(req.session.cart);
+    res.render('shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
+});
 
 router.get('/profile', isLoggedIn, function(req, res, next) {
     res.render('user/profile');

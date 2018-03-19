@@ -38,7 +38,10 @@
                         </li>
 
                         <li class="nav-item red">
-                            <a class="nav-link" href="/tutorials"><i class="fas fa-shopping-cart mr-1"></i>Cart</a>
+                            <a class="nav-link" href="/account/shopping-cart">
+                                <i class="fas fa-shopping-cart mr-1"></i>Cart
+                                <span class="badge badge-light">{{ session.cart.totalQty }}</span>
+                            </a>
                         </li>
                         <li class="nav-item dropdown red">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

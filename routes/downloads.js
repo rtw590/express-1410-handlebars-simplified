@@ -25,16 +25,4 @@ router.get('/:id', function(req, res){
 });
 
 
-// Get Single Article From Express nodeKB
-// router.get('/:id', function(req, res){
-//     Article.findById(req.params.id, function(err, article){
-//       User.findById(article.author, function(err, user){
-//         res.render('article', {
-//           article:article,
-//           author: user.name
-//         });
-//       });
-//     });
-// });
-
 module.exports = router;
