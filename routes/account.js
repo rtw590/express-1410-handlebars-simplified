@@ -17,6 +17,23 @@ router.get('/shopping-cart', function(req, res, next) {
     res.render('shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
 });
 
+// From Online
+router.get('/checkout', function(req, res, next){ 
+    if(!req.session.cart){ 
+        return res.redirect('/account/shopping-cart', {products:null});
+    } 
+    var cart = new Cart(req.session.cart); 
+    res.render('checkout', {total: cart.totalPrice, csrfToken: req.csrfToken()}); })
+
+// My Route That was getting invalid xsrf token error
+// router.get('/checkout', function(req, res, next) {
+//     if (!req.session.cart) {
+//         return res.redirect('/account/shopping-cart');
+//     }
+//     var cart = new Cart(req.session.cart);
+//     res.render('checkout', {total: cart.totalPrice});
+// });
+
 router.get('/profile', isLoggedIn, function(req, res, next) {
     res.render('user/profile');
 });
