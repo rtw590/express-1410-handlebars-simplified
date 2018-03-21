@@ -23,7 +23,46 @@ router.get('/checkout', function(req, res, next){
         return res.redirect('/account/shopping-cart', {products:null});
     } 
     var cart = new Cart(req.session.cart); 
-    res.render('checkout', {total: cart.totalPrice, csrfToken: req.csrfToken()}); })
+    var errMsg = req.flash('error')[0];
+    res.render('checkout', {total: cart.totalPrice, errMsg: errMsg, noError: !errMsg, csrfToken: req.csrfToken()})
+});
+    // res.render('checkout', {total: cart.totalPrice, errMsg: errMsg, noError: !errMsg, csrfToken: req.csrfToken()}); });
+
+router.post('/checkout', function(req, res, next) {
+    if (!req.session.cart) {
+        return res.redirect('/shopping-cart');
+    }
+    var cart = new Cart(req.session.cart);
+    
+    var stripe = require("stripe")(
+        "sk_test_YCCf2482OkVIlAzL03V6nRUW"
+    );
+
+    stripe.charges.create({
+        amount: cart.totalPrice * 100,
+        currency: "usd",
+        source: req.body.stripeToken, // obtained with Stripe.js
+        description: "Test Charge"
+    }, function(err, charge) {
+        if (err) {
+            req.flash('error', err.message);
+            return res.redirect('/account/checkout');
+        }
+        var order = new Order({
+            user: req.user,
+            cart: cart,
+            address: req.body.address,
+            name: req.body.name,
+            paymentId: charge.id
+        });
+        order.save(function(err, result) {
+            req.flash('success', 'Successfully bought product!');
+            req.session.cart = null;
+            res.redirect('/downloads');
+        });
+    }); 
+});
+
 
 // My Route That was getting invalid xsrf token error
 // router.get('/checkout', function(req, res, next) {
