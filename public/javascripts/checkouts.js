@@ -1,9 +1,13 @@
+// Trying this out
+var Stripe = Stripe('pk_test_DbRbRpBPRvrpWqrS8WZawjny');
 
-Stripe.setPublishableKey('pk_test_DbRbRpBPRvrpWqrS8WZawjny');
+// Original
+// Stripe.setPublishableKey('pk_test_DbRbRpBPRvrpWqrS8WZawjny');
 
 var $form = $('#checkout-form');
 
 $form.submit(function (event) {
+    console.log('submit happened');
     $('#charge-error').addClass('hidden');
     $form.find('button').prop('disabled', true);
     Stripe.card.createToken({
@@ -11,12 +15,15 @@ $form.submit(function (event) {
         cvc: $('#card-cvc').val(),
         exp_month: $('#card-expiry-month').val(),
         exp_year: $('#card-expiry-year').val(),
-        name: $('#card-name').val()
+        name: $('#name').val()
+        // Original
+        // name: $('#card-name').val()
     }, stripeResponseHandler);
     return false;
 });
 
 function stripeResponseHandler(status, response) {
+    console.log('stripe handler happened ');
     if (response.error) { // Problem!
 
         // Show the errors on the form
@@ -27,6 +34,7 @@ function stripeResponseHandler(status, response) {
     } else { // Token was created!
 
         // Get the token ID:
+        // Original From Tutorial
         var token = response.id;
 
         // Insert the token into the form so it gets submitted to the server:
@@ -37,3 +45,5 @@ function stripeResponseHandler(status, response) {
 
     }
 }
+
+
