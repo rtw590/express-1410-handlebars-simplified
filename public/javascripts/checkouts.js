@@ -1,16 +1,17 @@
-// Trying this out
-var Stripe = Stripe('pk_test_DbRbRpBPRvrpWqrS8WZawjny');
+// Trying this out from documentation
+var stripe = Stripe('pk_test_DbRbRpBPRvrpWqrS8WZawjny');
 
-// Original
+// Original From Tutorial
 // Stripe.setPublishableKey('pk_test_DbRbRpBPRvrpWqrS8WZawjny');
 
 var $form = $('#checkout-form');
 
+// Trying From Docs
 $form.submit(function (event) {
     console.log('submit happened');
     $('#charge-error').addClass('hidden');
     $form.find('button').prop('disabled', true);
-    Stripe.card.createToken({
+    stripe.createToken(card).then(function(result){
         number: $('#card-number').val(),
         cvc: $('#card-cvc').val(),
         exp_month: $('#card-expiry-month').val(),
@@ -21,6 +22,23 @@ $form.submit(function (event) {
     }, stripeResponseHandler);
     return false;
 });
+
+// Original Version From Tutorial
+// $form.submit(function (event) {
+//     console.log('submit happened');
+//     $('#charge-error').addClass('hidden');
+//     $form.find('button').prop('disabled', true);
+//     Stripe.card.createToken({
+//         number: $('#card-number').val(),
+//         cvc: $('#card-cvc').val(),
+//         exp_month: $('#card-expiry-month').val(),
+//         exp_year: $('#card-expiry-year').val(),
+//         name: $('#name').val()
+//         // Original
+//         // name: $('#card-name').val()
+//     }, stripeResponseHandler);
+//     return false;
+// });
 
 function stripeResponseHandler(status, response) {
     console.log('stripe handler happened ');
